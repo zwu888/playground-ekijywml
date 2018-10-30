@@ -1,19 +1,21 @@
-# Welcome!
-
-This C++ template lets you get started quickly with a simple one-page playground.
-
 ```C++ runnable
 #include <iostream>
 
-using namespace std;
-
-int main() 
+struct A
 {
-    cout << "Hello, World!";
-    return 0;
+  A() : val() {}
+  A(int v) : val(v) {}
+  A(A a) : val(a.val) {} 
+
+  int val;
+};
+
+int main(int argc, char** argv)
+{
+  A a1(5);
+  A a2(a1);
+
+  std::cout << a1.val + a2.val << std::endl;
+
+  return 0;
 }
-```
-
-# Advanced usage
-
-If you want a more complex example (external libraries, viewers...), use the [Advanced C++ template](https://tech.io/select-repo/598)
